@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
 	vector<Lesson> lessons = fr.parse_file(argv[1]);
 
 	for (Lesson lesson : lessons){
-		std::cout << lesson.get_name() << std::endl;
+		std::cout << "name: " << lesson.get_name() << "\nstart: " << lesson.get_intervals()[0].get_start() << std::endl;
 	}
 
 	return 0;

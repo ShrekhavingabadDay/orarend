@@ -1,4 +1,8 @@
 #include "include/filereader.hpp"
+#include "include/lesson.hpp"
+#include "include/interval.hpp"
+
+#include<iostream>
 
 using std::string;
 using std::vector;
@@ -16,14 +20,15 @@ vector<Lesson> FileReader::parse_file(const char *filename){
 		string lesson_name;
 		int weekly_count;
 
-		if(!(iss >> lesson_name >> weekly_count)) { break; } // TODO: hibkezelés
+		if(!(iss >> lesson_name >> weekly_count)) { break; } // TODO: hibakezelés
 
-		vector<string> tokens;
 		string token;
+		vector<Interval> intervals;
+		std::getline(iss, token, '\t');
 		while(std::getline(iss, token, '\t'))
-			tokens.push_back(token);
+			intervals.push_back(Interval(token));
 
-		lessons.push_back(Lesson(lesson_name, weekly_count, tokens));
+		lessons.push_back(Lesson(lesson_name, weekly_count, intervals));
 
 	}
 
