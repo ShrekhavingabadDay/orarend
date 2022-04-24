@@ -2,6 +2,7 @@
 #include<vector>
 #include "include/lesson.hpp"
 #include "include/interval.hpp"
+#include <bits/stdc++.h>
 
 using std::vector;
 using std::string;
@@ -22,10 +23,16 @@ void Lesson::set_name(string m_name){
 void Lesson::set_intervals(vector<Interval> m_intervals) {
 	intervals = m_intervals;
 }
+void Lesson::sort_intervals(void) {
+	sort(intervals.begin(), intervals.end());
+}
 
-string Lesson::get_name(void) {
+string Lesson::get_name(void) const {
 	return name;
 }
-vector<Interval> Lesson::get_intervals(void){
+vector<Interval> Lesson::get_intervals(void) const {
 	return intervals;
+}
+int Lesson::get_weekly_count(void) const {
+	return weekly_count;
 }

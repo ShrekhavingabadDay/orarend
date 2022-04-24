@@ -1,8 +1,11 @@
 #include "../include/filereader.hpp"
+#include "stream_overloading.hpp"
 #include <iostream>
 #include <vector>
 
 using std::vector;
+using std::cout;
+using std::endl;
 
 int main(int argc, char *argv[]){
 
@@ -11,7 +14,12 @@ int main(int argc, char *argv[]){
 	vector<Lesson> lessons = fr.parse_file(argv[1]);
 
 	for (Lesson lesson : lessons){
-		std::cout << "name: " << lesson.get_name() << "\nstart: " << lesson.get_intervals()[0].get_start() << std::endl;
+		lesson.sort_intervals();
+		cout << "name: " << lesson.get_name() << " weekly_count: " << lesson.get_weekly_count() << endl;
+		for (Interval ival : lesson.get_intervals()) {
+			cout << ival << " ";
+		}
+		cout << endl;
 	}
 
 	return 0;
