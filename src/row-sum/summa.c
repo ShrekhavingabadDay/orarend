@@ -16,21 +16,20 @@ int row_counter(char * filename)
 int main(int argc, char * argv[])
 {
     int sum = 0;
-    /*if(strcmp(argv[1], "--help") == 1)
+    if(strcmp("--help", argv[1]) == 0 || strcmp("-help", argv[1]) == 0 || strcmp("h", argv[1]) == 0 || strcmp("-h", argv[1] )== 0 )
     {
-        printf("./test <texfile> <testfile1> .....");
+        printf("Usage: ./test <texfile> <testfile1> .....\n");
         return 0;
     }
-    else{ */
-    for(int i = 1; i< argc ; i++)
-    {
-        sum = sum + row_counter(argv[i]);
-    }
-    FILE  * f = fopen("sum.txt", "w");
-    fprintf(f, "Ennyi sor van: %d", sum);
-    fclose(f);
-    printf("Ennyi az osszes szam: %d\n", sum);
+    else{
+        for(int i = 1; i< argc ; i++)
+        {
+            sum = sum + row_counter(argv[i]);
+        }
+        FILE  * f = fopen("sum.txt", "w");
+        fprintf(f, "Ennyi sor van: %d", sum);
+        fclose(f);
+        printf("Ennyi az osszes szam: %d\n", sum);
+        }
     return 0;
-   //}
 }
-
