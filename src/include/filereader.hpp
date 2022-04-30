@@ -6,7 +6,7 @@
 #include<string>
 #include<vector>
 
-#include "lesson.hpp"
+#include "timetable.hpp"
 
 class FileReader {
     private:
@@ -14,7 +14,7 @@ class FileReader {
         std::vector<std::string> tokens;
 
     public:
-        std::vector<Lesson> parse_file(const char *filename);
+        TimeTable parse_file(const char *filename);
 };
 
 #endif

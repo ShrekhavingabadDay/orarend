@@ -18,7 +18,7 @@ class Interval {
 		int get_start(void) const;
 		int get_end(void) const;
 
-		bool contains(const Interval &other) const;
+		bool overlaps(const Interval &other) const;
 
 		// operátor túlterhelések
 		Interval operator+(const Interval &other) const;

@@ -1,0 +1,6 @@
+Interval1: 480, 570
+Interval2: 380, 650
+Interval1 == Interval2: 0
+Interval1 != Interval2: 1
+il.overlaps(il2), il2.overlaps(il3)10
+Interval3 > Interval1: 1

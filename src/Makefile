@@ -1,5 +1,5 @@
 test:
-	g++ -o tests/test *.cpp tests/$(TEST).cpp
+	g++ -lm -o tests/test *.cpp tests/$(TEST).cpp
 	./tests/test tests/$(TEST).tsv | tee $(TEST).output
 	rm tests/test
 
