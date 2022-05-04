@@ -15,7 +15,7 @@ TimeTable FileReader::parse_file(const char *filename){
 	std::ifstream file(filename);
 
 	int i = 0;
-	while(std::getline(file, line)) {
+while(std::getline(file, line)) {
 
 		std::istringstream iss(line);
 
