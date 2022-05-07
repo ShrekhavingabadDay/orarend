@@ -8,6 +8,7 @@ using std::string;
 class Interval {
 	private:
 		int start, end;
+		string display_string;
 	public:
 		
 		// konstruktorok
@@ -15,8 +16,9 @@ class Interval {
 		Interval(int m_start, int m_end);
 
 		// getterek
-		int get_start(void) const;
-		int get_end(void) const;
+		const int& get_start(void) const;
+		const int& get_end(void) const;
+		const string& get_display_string(void) const;
 
 		bool overlaps(const Interval &other) const;
 

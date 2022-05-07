@@ -1,23 +1,34 @@
 #include "include/interval.hpp"
 
 #include<string>
+#include<ostream>
 
 using std::string;
+using std::to_string;
 
-Interval::Interval(string str){
+Interval::Interval(string str) {
 	start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
 	end = stoi(str.substr(6,2))*60 + stoi(str.substr(9,2));
+	display_string = str;
 }
 
 Interval::Interval(int m_start, int m_end) 
-	: start(m_start), end(m_end) {}
+	: start(m_start), end(m_end) {
 
-int Interval::get_start(void) const{
+	display_string = to_string(start/60) + ":" + to_string(start-start/60) + "-" + to_string(end/60) + to_string(end-end/60);
+
+}
+
+const int& Interval::get_start(void) const{
 	return start;
 }
 
-int Interval::get_end(void) const {
+const int& Interval::get_end(void) const {
 	return end;
+}
+
+const string& Interval::get_display_string(void) const {
+	return display_string;
 }
 
 bool Interval::operator==(const Interval &other) const {

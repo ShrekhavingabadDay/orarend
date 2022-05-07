@@ -8,14 +8,14 @@
 using std::string;
 using std::vector;
 
-TimeTable FileReader::parse_file(const char *filename){
+vector<Lesson> FileReader::parse_file(const char *filename){
 
 	vector<Lesson> lessons;
 
 	std::ifstream file(filename);
 
 	int i = 0;
-while(std::getline(file, line)) {
+	while(std::getline(file, line)) {
 
 		std::istringstream iss(line);
 
@@ -35,5 +35,5 @@ while(std::getline(file, line)) {
 
 	}
 
-	return TimeTable(lessons);
+	return lessons;
 }
