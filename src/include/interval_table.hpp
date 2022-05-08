@@ -17,23 +17,26 @@ using std::vector;
 
 template <typename T>
 class IntervalTable {
-	private:
+	protected:
 		vector<vector<T*>> table;
 		vector<Interval> intervals;
 	public:
-		
+
 		IntervalTable<T>( int col_count, vector<Interval> interval_vector );
 
 		IntervalTable<T>( int col_count, int row_count );
+
+		~IntervalTable<T> ();
 
 		// https://stackoverflow.com/questions/27431029/binary-search-with-returned-index-stl
 		// https://cplusplus.com/reference/vector/vector/insert
 		void insert_interval( Interval interval );
 
-		bool insert_data( T data, Interval interval, int col_num = 0 );
+		bool insert_data( T data, Interval interval, int col_num );
 
 		const int find_index( Interval interval ) const;
-		const int& get_col_num(void) const;
+		const int get_col_num(void) const;
+		const int get_row_num(void) const;
 
 		const vector<Interval>& get_intervals(void) const;
 

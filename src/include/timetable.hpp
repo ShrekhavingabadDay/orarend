@@ -1,12 +1,18 @@
 #ifndef TIMETABLE
 #define TIMETABLE
 
-#include "interval_table.hpp"
-#include<string>
+#define MAX_RETRIES
 
-class TimeTable : public IntervalTable<std::string>
+#include "interval_table.hpp"
+#include "lesson.hpp"
+
+class TimeTable : public IntervalTable<Lesson>
 {
-	
-}
+	protected:
+		const bool too_many (Lesson lesson, int col_num) const;
+	public:
+		bool insert_data( Lesson data, Interval interval, int col_num );	
+
+};
 
 #endif

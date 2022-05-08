@@ -2,6 +2,19 @@
 #include "../include/interval.hpp"
 #include "stream_overloading.hpp"
 
+typedef enum {
+	HETFO,
+	KEDD,
+	SZERDA,
+	CSUTORTOK,
+	PENTEK,
+	SZOMBAT,
+	VASARNAP
+} NAP;
+
+using std::cout;
+using std::endl;
+
 int main(void) {
 
 	IntervalTable<int> intervaltable(5,7);
@@ -21,6 +34,8 @@ int main(void) {
 	std::cout << intervaltable.get_intervals() << std::endl;
 
 	intervaltable.insert_data(5, elso_ora, 0);
+
+	cout << *(intervaltable[0][intervaltable.find_index(elso_ora)].value) << endl;
 
 	return 0;
 }

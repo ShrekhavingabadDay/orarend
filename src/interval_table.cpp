@@ -34,6 +34,13 @@ IntervalTable<T>::IntervalTable( int col_count, int row_count ) {
 
 }
 
+template <typename T>
+IntervalTable<T>::~IntervalTable() {
+	for (auto vec : table)
+		for (auto elem : vec)
+			delete elem;
+}
+
 // bináris keresés hatékonyabb volna
 // https://cplusplus.com/reference/vector/vector/insert
 template <typename T>
@@ -57,7 +64,7 @@ template <typename T>
 bool IntervalTable<T>::insert_data( T data, Interval interval, int col_num ) {
 	int index = find_index(interval);
 	if (index == -1) return false;
-	table[col_num][index] = &data;
+	table[col_num][index] = new T(data);
 	return true;
 }
 
@@ -72,12 +79,12 @@ const int IntervalTable<T>::find_index( Interval interval ) const{
 }
 
 template <typename T>
-const int& IntervalTable<T>::get_col_num( void ) const {
+const int IntervalTable<T>::get_col_num( void ) const {
 	return table.size();
 }
 
 template <typename T>
-const int& IntervalTable<T>::get_row_num( void ) const {
+const int IntervalTable<T>::get_row_num( void ) const {
 	return intervals.size();
 }
 
