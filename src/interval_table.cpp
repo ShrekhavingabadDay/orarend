@@ -1,6 +1,6 @@
 #include "include/interval_table.hpp"
 #include "include/lesson.hpp"
-
+#include <algorithm>
 #include <string>
 using std::vector;
 
@@ -8,6 +8,7 @@ template <typename T>
 IntervalTable<T>::IntervalTable( int col_count, vector<Interval> interval_vector ) {
 
 	intervals = interval_vector;
+	std::sort(intervals.begin(), intervals.end());
 
 	int rows = interval_vector.size();
 

@@ -1,17 +1,21 @@
 #ifndef TIMETABLE
 #define TIMETABLE
 
-#define MAX_RETRIES
+#define MAX_RETRIES 100
 
 #include "interval_table.hpp"
 #include "lesson.hpp"
+#include <vector>
+
+using std::vector;
 
 class TimeTable : public IntervalTable<Lesson>
 {
-	protected:
+	private:
 		const bool too_many (Lesson lesson, int col_num) const;
+		bool insert_lesson( Lesson data, Interval interval, int col_num );	
 	public:
-		bool insert_data( Lesson data, Interval interval, int col_num );	
+		const bool generate(vector<Lesson> lessons);
 
 };
 
