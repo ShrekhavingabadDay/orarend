@@ -13,9 +13,10 @@ class TimeTable : public IntervalTable<Lesson>
 {
 	private:
 		const bool too_many (Lesson lesson, int col_num) const;
-		bool insert_lesson( Lesson data, Interval interval, int col_num );	
+		const bool insert_lesson( Lesson data, Interval interval, int col_num );	
 	public:
-		const bool generate(vector<Lesson> lessons);
+		TimeTable(int col_num, vector<Interval> intervals);
+		const void generate(vector<Lesson> lessons);
 
 };
 

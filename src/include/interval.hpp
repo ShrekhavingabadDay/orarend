@@ -2,7 +2,9 @@
 #define INTERVAL
 
 #include<string>
+#include<iostream>
 
+using std::ostream;
 using std::string;
 
 class Interval {
@@ -28,6 +30,8 @@ class Interval {
 		bool operator!=(const Interval &other) const;
 		bool operator>(const Interval &other) const;
 		bool operator<(const Interval &other) const;
+
+		friend ostream& operator<<(ostream& os, const Interval& interval);
 };
 
 #endif

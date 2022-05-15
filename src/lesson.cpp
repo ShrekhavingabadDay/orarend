@@ -4,10 +4,11 @@
 #include "include/interval.hpp"
 #include "include/random_integer.hpp"
 #include <bits/stdc++.h>
+#include <iostream>
 
 using std::vector;
 using std::string;
-
+using std::ostream;
 
 Lesson::Lesson(string m_name, int m_weekly_count, vector<Interval> m_intervals, int m_id) 
 	: id(m_id), RNG(RandInt(m_intervals.size()-1)) {
@@ -48,4 +49,9 @@ int Lesson::get_weekly_count(void) const {
 
 int Lesson::get_id (void) const {
 	return id;
+}
+
+ostream& operator<<(ostream& os, const Lesson& lesson){
+	os << lesson.get_name();
+	return os;
 }

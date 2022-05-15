@@ -28,6 +28,9 @@ class IntervalTable {
 
 		~IntervalTable<T> ();
 
+		// túlterheljük a kiirató operátort
+		// ostream& opeartor<<(ostream& os, const Intervaltable<T>& intervaltable);
+
 		// https://stackoverflow.com/questions/27431029/binary-search-with-returned-index-stl
 		// https://cplusplus.com/reference/vector/vector/insert
 		void insert_interval( Interval interval );
@@ -68,6 +71,19 @@ class IntervalTable {
 		Proxy operator[] (int index) {
 			return Proxy(table[index], intervals);
 		};
+
+		// docs.microsoft.com/en-us/cpp/standard-library/overloading-the-output-operator-for-your-own-classes
+		friend ostream& operator<<(ostream& os, const IntervalTable<T>& intervaltable){
+			int rows = intervaltable.get_row_num();
+			for (int i = 0; i<rows; i++){
+				os << intervaltable.intervals[i] << "|\t";
+				for (auto col : intervaltable.table)
+					os << col[i] << "|\t";
+				os << '\n';
+			}
+			return os;
+		}
+
 };
 
 

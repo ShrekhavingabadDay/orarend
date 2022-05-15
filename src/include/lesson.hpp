@@ -3,21 +3,23 @@
 
 #include<string>
 #include<vector>
+#include<iostream>
 
 #include "interval.hpp"
 #include "random_integer.hpp"
 
 using std::vector;
 using std::string;
+using std::ostream;
 
 class Lesson {
 
 private:
-		const RandInt RNG;
-		const int id;
-		string name;
-		int weekly_count;
-		vector<Interval> intervals;
+	const RandInt RNG;
+	const int id;
+	string name;
+	int weekly_count;
+	vector<Interval> intervals;
 
 public:
 	Lesson(string m_name, int m_weekly_count, vector<Interval> m_intervals, int id);
@@ -30,6 +32,7 @@ public:
 	void sort_intervals(void);
 	int get_id(void) const; 
 	Interval get_random_interval(void) const;
+	friend ostream& operator<<(ostream& os, const Lesson& lesson);
 };
 
 #endif

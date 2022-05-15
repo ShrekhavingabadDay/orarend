@@ -1,10 +1,11 @@
 #include "include/interval.hpp"
 
 #include<string>
-#include<ostream>
+#include<iostream>
 
 using std::string;
 using std::to_string;
+using std::ostream;
 
 Interval::Interval(string str) {
 	start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
@@ -49,6 +50,11 @@ bool Interval::operator<(const Interval &other) const {
 
 bool Interval::overlaps(const Interval &other) const {
 	return !( this->get_start() > other.get_end() || this->get_end() < other.get_start() );
+}
+
+ostream& operator<<(ostream& os, const Interval& interval){
+	os << interval.get_display_string();
+	return os;
 }
 
 /*

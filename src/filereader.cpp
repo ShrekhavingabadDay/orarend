@@ -1,7 +1,6 @@
 #include "include/filereader.hpp"
 #include "include/lesson.hpp"
 #include "include/interval.hpp"
-#include "include/timetable.hpp"
 
 #include<iostream>
 

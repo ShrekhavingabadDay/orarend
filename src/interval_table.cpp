@@ -9,7 +9,6 @@ IntervalTable<T>::IntervalTable( int col_count, vector<Interval> interval_vector
 
 	intervals = interval_vector;
 	std::sort(intervals.begin(), intervals.end());
-
 	int rows = interval_vector.size();
 
 	table.resize(col_count);
