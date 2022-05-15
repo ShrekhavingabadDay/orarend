@@ -1,5 +1,6 @@
 #include "../include/timetable.hpp"
 #include "../include/filereader.hpp"
+#include "stream_overloading.hpp"
 #include <vector>
 #include <iostream>
 
@@ -24,15 +25,15 @@ int main(int argc, char *argv[]) {
 	};
 
 	// beolvassuk az órákat filereaderrel
-	FileReader fr;
-	vector<Lesson> lessons = fr.parse_file(argv[1]);
+	FileReader fr(argv[1]);
+	vector<Lesson> lessons = fr.parse_file();
 
 	// öt napból álló órarend
-	TimeTable tt(PENTEK, ora_idopontok);
+	TimeTable tt(PENTEK+1, ora_idopontok);
 
 	tt.generate(lessons);
 
-	std::cout << tt;
+	tt.print();
 
 	return 0;
 }

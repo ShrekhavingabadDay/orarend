@@ -84,6 +84,10 @@ class IntervalTable {
 			return os;
 		}
 
+		// friend függvények nem örklődnek, ezért készítünk örökölhető print függvényt is
+
+		void print(void) const;
+
 };
 
 

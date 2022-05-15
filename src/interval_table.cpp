@@ -2,6 +2,8 @@
 #include "include/lesson.hpp"
 #include <algorithm>
 #include <string>
+#include <iostream>
+
 using std::vector;
 
 template <typename T>
@@ -91,6 +93,22 @@ const int IntervalTable<T>::get_row_num( void ) const {
 template <typename T>
 const vector<Interval>& IntervalTable<T>::get_intervals(void) const {
 	return intervals;
+}
+
+template <typename T>
+void IntervalTable<T>::print(void) const {
+	int rows = get_row_num();
+	for (int i = 0; i<rows; i++){
+		std::cout << i << '\t' << intervals[i] << "|\t";
+		for (auto col : table){
+			T* data = col[i];
+			if (data != nullptr)
+				std::cout << *(col[i]);
+			std::cout << "|\t";
+		}
+		std::cout << '\n';
+	}
+	std::cout << std::endl;
 }
 
 // https://stackoverflow.com/questions/8752837/undefined-reference-to-template-class-constructor

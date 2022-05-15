@@ -1,8 +1,6 @@
 #ifndef TIMETABLE
 #define TIMETABLE
 
-#define MAX_RETRIES 100
-
 #include "interval_table.hpp"
 #include "lesson.hpp"
 #include <vector>
@@ -17,7 +15,6 @@ class TimeTable : public IntervalTable<Lesson>
 	public:
 		TimeTable(int col_num, vector<Interval> intervals);
 		const void generate(vector<Lesson> lessons);
-
 };
 
 #endif

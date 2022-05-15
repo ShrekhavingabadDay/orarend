@@ -10,11 +10,10 @@
 
 class FileReader {
     private:
-        std::string line;
-        std::vector<std::string> tokens;
-
+	std::ifstream file;
     public:
-	std::vector<Lesson> parse_file(const char *filename);
+	FileReader(const char *filename);
+	std::vector<Lesson> parse_file(void);
 };
 
 #endif

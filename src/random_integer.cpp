@@ -7,5 +7,5 @@ RandInt::RandInt(unsigned int m_range) : range(m_range) {
 }
 
 unsigned int RandInt::gen(void) const {
-	return rand() % range +1;
+	return rand() % range + 1;
 }

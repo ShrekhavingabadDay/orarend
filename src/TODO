@@ -1,4 +1,0 @@
-[] implement generate function in "timetable.cpp"
-[] implement printing of general interval table in "interval_table.cpp"
-[] user error handling in "filereader.cpp"
-[] write main function

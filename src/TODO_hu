@@ -1,4 +1,0 @@
-[] "timetable.cpp"-ben órarend generálás megírása
-[] "interval_table.cpp"-ben kiratás felülírása
-[] "filereader.cpp"-ben felhasználói hibák, elírások kezelése
-[] main függvény implementálása
