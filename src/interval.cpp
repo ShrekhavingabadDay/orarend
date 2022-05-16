@@ -1,8 +1,9 @@
 #include "include/interval.hpp"
 
+#include <stdlib.h>
+
 #include<string>
 #include<iostream>
-#include<stdlib.h>
 #include<exception>
 
 using std::string;
@@ -11,13 +12,13 @@ using std::ostream;
 
 Interval::Interval(string str) {
 	try{
-		start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
-		end = stoi(str.substr(6,2))*60 + stoi(str.substr(9,2));
-	}catch(std::exception &err){
-		std::cout << str << " - Nem megfelelő formátumú intervallum!" << std::endl;
+	start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
+	end = stoi(str.substr(6,2))*60 + stoi(str.substr(9,2));
+	}
+	catch(std::exception &except){
+		std::cout << str << " - nem megfelelő formátum!" << std::endl;
 		exit(1);
 	}
-	std::cout << "epic" << std::endl;
 	display_string = str;
 }
 
