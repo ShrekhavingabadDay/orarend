@@ -2,14 +2,22 @@
 
 #include<string>
 #include<iostream>
+#include<stdlib.h>
+#include<exception>
 
 using std::string;
 using std::to_string;
 using std::ostream;
 
 Interval::Interval(string str) {
-	start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
-	end = stoi(str.substr(6,2))*60 + stoi(str.substr(9,2));
+	try{
+		start = stoi(str.substr(0, 2))*60 + stoi(str.substr(3, 2));
+		end = stoi(str.substr(6,2))*60 + stoi(str.substr(9,2));
+	}catch(std::exception &err){
+		std::cout << str << " - Nem megfelelő formátumú intervallum!" << std::endl;
+		exit(1);
+	}
+	std::cout << "epic" << std::endl;
 	display_string = str;
 }
 

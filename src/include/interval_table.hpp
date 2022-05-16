@@ -1,10 +1,10 @@
 #ifndef INTERVAL_TABLE
-#define INTERVAl_TABLE
+#define INTERVAL_TABLE
 
 #include "interval.hpp"
 #include <vector>
 #include <cstddef>
-#include <bits/stdc++.h>
+#include <algorithm>
 
 template <typename T>
 struct interval_table_elem {

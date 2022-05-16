@@ -4,10 +4,12 @@
 
 using std::vector;
 
+// meghívjuk a szülő osztály konstruktorát
 TimeTable::TimeTable(int col_num, vector<Interval> intervals)
 	:IntervalTable{col_num, intervals}
 {
 }
+
 
 const bool TimeTable::too_many (Lesson in_lesson, int col_num) const {
 	int comp_id = in_lesson.get_id();

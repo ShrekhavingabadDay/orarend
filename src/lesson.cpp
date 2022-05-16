@@ -3,7 +3,7 @@
 #include "include/lesson.hpp"
 #include "include/interval.hpp"
 #include "include/random_integer.hpp"
-#include <bits/stdc++.h>
+#include <algorithm>
 #include <iostream>
 
 using std::vector;
@@ -29,7 +29,7 @@ void Lesson::set_intervals(vector<Interval> m_intervals) {
 }
 
 void Lesson::sort_intervals(void) {
-	sort(intervals.begin(), intervals.end());
+	std::sort(intervals.begin(), intervals.end());
 }
 
 string Lesson::get_name(void) const {
