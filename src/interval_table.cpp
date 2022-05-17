@@ -6,26 +6,17 @@
 
 using std::vector;
 
-// konstruktor 1: 
 template <typename T>
 IntervalTable<T>::IntervalTable( int col_count, vector<Interval> interval_vector ) {
 
 	intervals = interval_vector;
-	// rendezzük a vektort
-	// mondhatod hogy mondjuk innen nézted:
-	// https://www.tutorialspoint.com/sorting-a-vector-in-cplusplus
 	std::sort(intervals.begin(), intervals.end());
-	// size függvény megmondja, hogy milyen hosszú a vektor
 	int rows = interval_vector.size();
 
-	// https://www.cplusplus.com/reference/vector/vector/resize/
-	// felgyorsítja az elemek hozzàadàsàt a vektorhoz/
-	// auto-t nemtom tanultàtok-e
-	// automatikusan beállítja a változó típusát
 	table.resize(col_count);
-	for (auto col : table) {
+	for (auto & col : table) {
 		col.resize(rows);
-		for (auto elem : col)
+		for (auto & elem : col)
 			elem = nullptr;
 	}
 
@@ -33,7 +24,7 @@ IntervalTable<T>::IntervalTable( int col_count, vector<Interval> interval_vector
 
 template <typename T>
 IntervalTable<T>::IntervalTable( int col_count, int row_count ) {
-	// https://www.cplusplus.com/reference/vector/vector/reserve
+
 	intervals.reserve(row_count);
 
 	table.resize(col_count);
@@ -45,7 +36,6 @@ IntervalTable<T>::IntervalTable( int col_count, int row_count ) {
 
 }
 
-// mivel pointereket tárolunk, ezért konstruktorban fel is szabadíttyuk őket nagybao
 template <typename T>
 IntervalTable<T>::~IntervalTable() {
 	for (auto vec : table)
@@ -82,7 +72,6 @@ bool IntervalTable<T>::insert_data( T data, Interval interval, int col_num ) {
 
 template <typename T>
 const int IntervalTable<T>::find_index( Interval interval ) const{
-	// mivel rendezett a vektor, ezért bináris kereséssel keressük meg az intervallumot
 	// https://stackoverflow.com/questions/27431029/binary-search-with-returned-index-stl
 	auto it = std::lower_bound(intervals.begin(), intervals.end(), interval);
 	if (it == intervals.end() || *it != interval)

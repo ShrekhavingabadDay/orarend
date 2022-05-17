@@ -3,7 +3,7 @@
 #include "include/lesson.hpp"
 #include "include/interval.hpp"
 #include "include/random_integer.hpp"
-#include <algorithm>
+#include <bits/stdc++.h>
 #include <iostream>
 
 using std::vector;
@@ -11,7 +11,7 @@ using std::string;
 using std::ostream;
 
 Lesson::Lesson(string m_name, int m_weekly_count, vector<Interval> m_intervals, int m_id) 
-	: id(m_id), RNG(RandInt(m_intervals.size()-1)) {
+	: id(m_id), RNG(RandInt(m_intervals.size())) {
 
 	name = m_name;
 	weekly_count = m_weekly_count;
@@ -29,7 +29,7 @@ void Lesson::set_intervals(vector<Interval> m_intervals) {
 }
 
 void Lesson::sort_intervals(void) {
-	std::sort(intervals.begin(), intervals.end());
+	sort(intervals.begin(), intervals.end());
 }
 
 string Lesson::get_name(void) const {
